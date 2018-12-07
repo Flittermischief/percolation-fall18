@@ -1,22 +1,70 @@
-Your name
-Your netid
-
-Copy/Paste results from PercolationStats using PercolationDFS
-
+Katherine Cottrell
+kmc113
 
 Copy/Paste results from PercolationStats using PercolationDFSFast
+simulation data for 20 trials
+grid	mean	stddev	time
+100		0.593	0.014	0.233
+200		0.591	0.010	0.237
+400		0.590	0.006	1.534
+800		0.594	0.004	9.559
+Sorry for the short cut-out before the StackOverFlow error, my
+dino laptop has like three Microsoft Word files of space left.
+
 
 
 Copy/Paste results from PercolationStats using PercolationBFS
+simulation data for 20 trials
+grid	mean	stddev	time
+100		0.593	0.014	0.247
+200		0.591	0.010	0.213
+400		0.590	0.006	1.276
+
 
 
 Copy/Paste results from PercolationStats using PercolationUF 
 with the QuickUWPC UnionFind implementation.
+simulation data for 20 trials
+grid	mean	stddev	time
+100		0.593	0.014	0.119
+200		0.591	0.010	0.210
+400		0.590	0.006	0.947
+800		0.594	0.004	5.884
+1600	0.592	0.002	28.322
+3200	0.593	0.001	154.722
 
-1. How does doubling the grid size affect running time (keeping # trials fixed)
+simulation data for 40 trials
+grid	mean	stddev	time
+100		0.594	0.015	0.256
+200		0.591	0.009	0.348
+400		0.591	0.005	1.739
+800		0.593	0.004	11.504
+1600	0.593	0.002	55.124
+3200	0.593	0.001	298.850
 
 
-2. How does doubling the number of trials affect running time.
+1. How does doubling the grid size affect running time (keeping # trials fixed)?
+Doubling the grid size affects the running time of PercolationUF by increasing it
+significantly.  When doubling a smaller grid size, like 100 to 200, the increase
+in runtime is already 176%, and when doubling a large grid size, like 1600 to 3200,
+the increase in runtime is 546%.  So it does NOT scale well, increasing the size
+of the problem greatly increases its time and expense.
+
+2. How does doubling the number of trials affect running time?
+Doubling the number of trials increases running time immensely, roughly doubling the
+time it took to run half as many trials.  I watched half an episode of Gumby while 
+my ever-suffering laptop simulated the output of 40 trials.  Doubling the number of 
+trials from a smaller size like 100 from 20 trials to 40 trials increases the running 
+time by 215%, which is tolerable, as it's a small amount of time to double, but
+doubling the number of trials run on a larger grid size like 3200 from 20 trials to
+40 trials increases the running time by 193%, which is about 2.5 extra minutes.
 
 
 3. Estimate the largest grid size you can run in 24 hours with 20 trials. Explain your reasoning.
+I graphed the times in Excel and fit it with a power trendline of equation y = 3E-06x^2.1595 and
+an r^2 value of 0.9839, which I found acceptable.  24 hours converts to 
+60 seconds * 60 minutes * 24 hours = 86,400 seconds, making the equation to be solved 
+86400 = 3E-06x^2.1595.  Using basic algebra I found this to be approximately max grid size = 69732.
+
+
+
