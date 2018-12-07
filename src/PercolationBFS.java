@@ -14,8 +14,8 @@ public class PercolationBFS extends PercolationDFSFast {
 		myGrid[row][col] = FULL;
 		myQ.add(row*myGrid.length+col);
 		int a=0;
-		while (myQ.size() != 0 || a==0){
-			a=0;
+
+
 			int dQd = myQ.remove();
 
 			int dQdCol = dQd%myGrid.length;
@@ -41,7 +41,6 @@ public class PercolationBFS extends PercolationDFSFast {
 				myQ.add(myGrid[dQdRow][dQdCol + 1]);
 				dfs(dQdRow, dQdCol + 1); 	// B001b
 			}
-			a=1;
-		}
+			
 	}
 }
