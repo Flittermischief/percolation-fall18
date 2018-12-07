@@ -30,7 +30,7 @@ public class PercolationUF implements IPercolate {
 	@Override
 	public boolean isOpen(int row, int col) {
 		if (row < 0 || row >= theSize || col < 0 || col >= theSize) {
-			throw new IllegalArgumentException("That's out of bounds!");
+			throw new IndexOutOfBoundsException("That's out of bounds!");
 		}
 		if (myGrid[row][col]==true) {
 			return true;
@@ -42,7 +42,7 @@ public class PercolationUF implements IPercolate {
 	@Override
 	public boolean isFull(int row, int col) {
 		if (row < 0 || row >= theSize || col < 0 || col >= theSize) {
-			throw new IllegalArgumentException("That's out of bounds!");
+			throw new IndexOutOfBoundsException("That's out of bounds!");
 		}
 		if (myFinder.connected((row*theSize)+col,VTOP)) {
 			return true;
@@ -55,7 +55,7 @@ public class PercolationUF implements IPercolate {
 	@Override 
 	public void open(int row, int col) {
 		if (row < 0 || row >= theSize || col < 0 || col >= theSize) {
-			throw new IllegalArgumentException("That's out of bounds!");
+			throw new IndexOutOfBoundsException("That's out of bounds!");
 		}
 		myGrid[row][col] = true;
 		if (checkBounds(row+1,col) && isOpen(row+1,col)) {
