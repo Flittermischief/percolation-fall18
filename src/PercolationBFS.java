@@ -18,19 +18,19 @@ public class PercolationBFS extends PercolationDFSFast {
 		int dQdCol = dQd%myGrid.length;
 		int dQdRow = (dQd-dQdCol)/myGrid.length;
 		
-		if (isOpen(dQdRow - 1, dQdCol) && (!isFull(dQdRow - 1, dQdCol))) {
+		if (inBounds(dQdRow - 1, dQdCol) && isOpen(dQdRow - 1, dQdCol) && (!isFull(dQdRow - 1, dQdCol))) {
 			myGrid[dQdRow - 1][dQdCol] = FULL;
 			myQ.add(myGrid[dQdRow - 1][dQdCol]);
 		}
-		if (isOpen(dQdRow + 1, dQdCol) && (!isFull(dQdRow + 1, dQdCol))) {
+		if (inBounds(dQdRow + 1, dQdCol) && isOpen(dQdRow + 1, dQdCol) && (!isFull(dQdRow + 1, dQdCol))) {
 			myGrid[dQdRow + 1][dQdCol] = FULL;
 			myQ.add(myGrid[dQdRow + 1][dQdCol]);
 		}
-		if (isOpen(dQdRow, dQdCol - 1) && (!isFull(dQdRow, dQdCol - 1))) {
+		if (inBounds(dQdRow, dQdCol - 1) && isOpen(dQdRow, dQdCol - 1) && (!isFull(dQdRow, dQdCol - 1))) {
 			myGrid[dQdRow][dQdCol - 1] = FULL;
 			myQ.add(myGrid[dQdRow][dQdCol - 1]);
 		}
-		if (isOpen(dQdRow, dQdCol + 1) && (!isFull(dQdRow, dQdCol + 1))) {
+		if (inBounds(dQdRow, dQdCol + 1) && isOpen(dQdRow, dQdCol + 1) && (!isFull(dQdRow, dQdCol + 1))) {
 			myGrid[dQdRow][dQdCol + 1] = FULL;
 			myQ.add(myGrid[dQdRow][dQdCol + 1]);
 		}
